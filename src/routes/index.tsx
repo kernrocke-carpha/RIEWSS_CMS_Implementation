@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import logoAsset from "../assets/riewss-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
+
 
 type AgendaRow = { time: string; topic: string; presenter: string };
 type Webinar = {
@@ -344,13 +346,16 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-3">
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-primary text-primary-foreground font-display text-sm font-semibold">
-            R
-          </span>
+          <img
+            src={logoAsset.url}
+            alt="CARPHA RIEWSS logo"
+            className="h-10 w-10 object-contain"
+          />
           <span className="font-display text-lg font-semibold tracking-tight">
             RIEWSS Rollout
           </span>
         </a>
+
         <nav className="hidden gap-6 text-sm text-muted-foreground md:flex">
           <a href="#phase-1" className="transition-colors hover:text-foreground">Planning</a>
           <a href="#phase-2" className="transition-colors hover:text-foreground">Demonstration</a>
@@ -380,10 +385,16 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             CARPHA · Integrated Surveillance–IT Framework
           </div>
-          <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.02] md:text-6xl">
-            Rolling out <span className="italic text-teal-deep">RIEWSS</span> across
-            CARPHA Member States — one country at a time.
-          </h1>
+          <div className="mt-8 flex items-center gap-5">
+            <img
+              src={logoAsset.url}
+              alt="CARPHA RIEWSS logo"
+              className="h-24 w-24 shrink-0 object-contain md:h-28 md:w-28"
+            />
+            <h1 className="font-display text-4xl font-semibold leading-[1.05] md:text-5xl">
+              Rolling out <span className="italic text-teal-deep">RIEWSS</span> across CARPHA Member States
+            </h1>
+          </div>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
             An interactive twelve-week framework spanning governance planning,
             joint surveillance–IT demonstrations, in-country deployment, and
@@ -404,6 +415,7 @@ function Hero() {
             </a>
           </div>
         </div>
+
 
         <div className="relative">
           <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
